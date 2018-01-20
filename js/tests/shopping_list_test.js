@@ -41,5 +41,17 @@ describe('ShoppingListItem', function () {
     firstItem.check();
     firstItem.is_done.should.equal(true);
   })
+  
+  describe('uncheck', function() {
+    it('should have a method named uncheck', function () {
+      expect(firstItem.uncheck).to.be.a('function')
+    });
+  it('should set is_done to false', function () {
+    firstItem.uncheck();
+    firstItem.is_done.should.equal(false);
+  })
+  })
+
+
 });
 });
