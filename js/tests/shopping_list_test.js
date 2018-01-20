@@ -75,4 +75,10 @@ describe('ShoppingList', function(){
   it('should have a property called items', function () {
     expect(firstList.items).to.be.a('string');
   });
+  // it('should have a property called items', function() {
+  //   expect(firstList).to.include(items);
+  // })
+  it('should initialize items as an empty array', function() {
+    expect(firstList.items).to.be.an('array');
+  })
 })
