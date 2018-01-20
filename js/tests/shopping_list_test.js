@@ -55,9 +55,9 @@ describe('ShoppingListItem', function () {
       it('should have a method name render', function() {
         expect(firstItem.render).to.be.a('function');
       })
-      it('should return a string', function() {
-        expect(firstItem.render()).to.be.a('string');
-      })
+      // it('should return a string', function() {
+      //   expect(firstItem.render()).to.be.a('string');
+      // })
 
       // it('should be wrapped in li tags', function() {
       //   expect(firstItem.render()).to.equal(<li></li>);
@@ -73,12 +73,19 @@ describe('ShoppingList', function(){
     expect(ShoppingList).to.be.a('function')
   });
   it('should have a property called items', function () {
-    expect(firstList.items).to.be.a('string');
+    expect(firstList).to.have.all.keys('items');
   });
-  // it('should have a property called items', function() {
-  //   expect(firstList).to.include(items);
-  // })
   it('should initialize items as an empty array', function() {
     expect(firstList.items).to.be.an('array');
   })
+  describe('addItem', function () {
+    let newItem = 'avocado'
+    it('should have a method named addItem', function () {
+      expect(firstList.addItem).to.be.a('function')
+    });
+    it('should accept one argument', function() {
+      firstList.addItem(newItem);
+      firstList.items.should.include(newItem)
+    })
+  });
 })
