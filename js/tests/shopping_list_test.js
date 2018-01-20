@@ -66,3 +66,13 @@ describe('ShoppingListItem', function () {
 
   });
 });
+let firstList = new ShoppingList();
+
+describe('ShoppingList', function(){
+  it('should be a class', function () {
+    expect(ShoppingList).to.be.a('function')
+  });
+  it('should have a property called items', function () {
+    expect(firstList.items).to.be.a('string');
+  });
+})

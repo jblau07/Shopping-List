@@ -12,6 +12,14 @@ class ShoppingListItem {
     this.is_done = false;
   }
   render() {
-    return '';
+    // let liHTML = document.createElement("span");
+    // liHTML.innerHTML = [name];
+
+    
+    // let liWrap = document.createElement("li")
+    // liWrap.innerHTML = "slsf"
+    // // liWrap.className = completed_[is_done];
+    
+    // return liWrap;
   }
 }
