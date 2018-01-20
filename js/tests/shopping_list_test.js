@@ -19,39 +19,50 @@ describe('ShoppingListItem', function () {
     expect(firstItem.description).to.be.a('string');
   });
 
-  it('should have a property called is_done', function() {
+  it('should have a property called is_done', function () {
     expect(firstItem.is_done).to.equal(false);
   });
-  
+
   it('should set first argument as the name value', function () {
-   expect(firstItem.name).to.equal(firstParam);
+    expect(firstItem.name).to.equal(firstParam);
   });
 
   it('should set second argument as the description value', function () {
     expect(firstItem.description).to.equal(secParam);
   });
-  
+
   describe('check', function () {
 
-  it('should have a method called check', function () {
-    expect(firstItem.check).to.be.a('function');
-  });
-
-  it('should set is_done to true', function () {
-    firstItem.check();
-    firstItem.is_done.should.equal(true);
-  })
-  
-  describe('uncheck', function() {
-    it('should have a method named uncheck', function () {
-      expect(firstItem.uncheck).to.be.a('function')
+    it('should have a method called check', function () {
+      expect(firstItem.check).to.be.a('function');
     });
-  it('should set is_done to false', function () {
-    firstItem.uncheck();
-    firstItem.is_done.should.equal(false);
-  })
-  })
 
+    it('should set is_done to true', function () {
+      firstItem.check();
+      firstItem.is_done.should.equal(true);
+    })
 
-});
+    describe('uncheck', function () {
+      it('should have a method named uncheck', function () {
+        expect(firstItem.uncheck).to.be.a('function')
+      });
+      it('should set is_done to false', function () {
+        firstItem.uncheck();
+        firstItem.is_done.should.equal(false);
+      })
+    })
+    describe('render', function () {
+      it('should have a method name render', function() {
+        expect(firstItem.render).to.be.a('function');
+      })
+      it('should return a string', function() {
+        expect(firstItem.render()).to.be.a('string');
+      })
+
+      // it('should be wrapped in li tags', function() {
+      //   expect(firstItem.render()).to.equal(<li></li>);
+      // })
+    })
+
+  });
 });
