@@ -6,20 +6,40 @@ describe('ShoppingListItem', function () {
   let firstParam = 'apple';
   let secParam = 'fuji';
   let firstItem = new ShoppingListItem(firstParam, secParam);
-  
+
   it('should be a class', function () {
     expect(ShoppingListItem).to.be.a('function')
   });
 
   it('should have a property called name', function () {
-   expect(firstItem.name).to.equal(firstParam)
+    expect(firstItem.name).to.be.a('string');
   });
 
   it('should have a property called description', function () {
-    expect(firstItem.description).to.equal(secParam);
+    expect(firstItem.description).to.be.a('string');
   });
 
   it('should have a property called is_done', function() {
     expect(firstItem.is_done).to.equal(false);
+  });
+  
+  it('should set first argument as the name value', function () {
+   expect(firstItem.name).to.equal(firstParam);
+  });
+
+  it('should set second argument as the description value', function () {
+    expect(firstItem.description).to.equal(secParam);
+  });
+  
+  describe('check', function () {
+
+  it('should have a method called check', function () {
+    expect(firstItem.check).to.be.a('function');
+  });
+
+  it('should set is_done to true', function () {
+    firstItem.check();
+    firstItem.is_done.should.equal(true);
   })
+});
 });
