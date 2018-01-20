@@ -18,4 +18,8 @@ describe('ShoppingListItem', function () {
   it('should have a property called description', function () {
     expect(firstItem.description).to.equal(secParam);
   });
+
+  it('should have a property called is_done', function() {
+    expect(firstItem.is_done).to.equal(false);
+  })
 });
