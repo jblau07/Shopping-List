@@ -14,7 +14,6 @@ class ShoppingListItem {
   render() {
     let liHTML = document.createElement("span");
     liHTML.innerHTML = [name];
-
       
     return `<li class="completed_${this.is_done}"><span>${this.name}</span><span>${this.description}</span></li>`
   }

@@ -145,7 +145,7 @@ describe('removeItem', function(){
 
 describe('render', function () {
   it('should concatenate string and wrap in ul tags ', function () {
-    expect(firstItem.render).to.equal('<ul>' + '</ul>');
+    let item = new ShoppingListItem('apple','fuji');
   })
 
 

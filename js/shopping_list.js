@@ -22,9 +22,13 @@ class ShoppingList {
       return false;
   }
 }
-render(z) {
-  let itemz = document.createElement('ul');
-  itemz.innerHTML = this.items;
+render() {
+  let ul = `<ul>`;
+  let closeUI = `</ul>`;
+  for(let i = 0; i < items.length; i++){
+    let rendered = items[i].render();
+  }
+  return ul + '' + rendered + '' + closeUI;
 }
 
 
