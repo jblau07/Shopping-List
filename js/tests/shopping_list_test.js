@@ -117,10 +117,12 @@ describe('removeItem', function(){
   it('should have a method named removeItem', function () {
     expect(tempList.removeItem).to.be.a('function');
   });
+
   it('should only remove an item that exists in items array', function () {
-    tempList.removeItem(notInList);
-    tempList.items.should.not.contain(notInList);
+    expect(tempList.removeItem(notInList)).to.equal(false);
+    
   })
+
   it('should remove the item from the shopping list', function (){
     tempList.removeItem(tempItem1);
     tempList.items.should.not.contain(tempItem1);
@@ -130,7 +132,7 @@ describe('removeItem', function(){
     tempList.removeItem(tempItem1);
     tempList.items.should.contain(tempItem2);
   })
-  it('should throw an error if a shopping list item is not passed as the argument', function(){
+  it('should throw an error if item is not a shopping list item', function(){
     expect(tempList.removeItem.bind(tempList, 'z')).to.throw();
 })
 
