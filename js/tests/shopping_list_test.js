@@ -53,16 +53,22 @@ describe('check', function () {
     })
   })
   describe('render', function () {
+
     it('should have a method name render', function () {
       expect(firstItem.render).to.be.a('function');
     })
-    // it('should return a string', function() {
-    //   expect(firstItem.render()).to.be.a('string');
-    // })
+    it('should return a string', function() {
+      expect(firstItem.render()).to.be.a('string');
+    })
 
     // it('should be wrapped in li tags', function() {
-    //   expect(firstItem.render()).to.equal(<li></li>);
+    //   expect(firstItem.render().nodeName).to.equal('li');
     // })
+
+    it('should contain item name, item description, and set the class to is_done', function (){
+      expect(firstItem.render()).to.equal(`<li class="completed_false"><span>apple</span><span>fuji</span></li>`)
+    })
+
   })
 
 
@@ -135,9 +141,20 @@ describe('removeItem', function(){
   it('should throw an error if item is not a shopping list item', function(){
     expect(tempList.removeItem.bind(tempList, 'z')).to.throw();
 })
-
-
 })// end describe removeItem
+
+describe('render', function () {
+  it('should concatenate string and wrap in ul tags ', function () {
+    expect(firstItem.render).to.equal('<ul>' + '</ul>');
+  })
+
+
+})
+
+
+
+
+
 
 
 

@@ -21,10 +21,14 @@ class ShoppingList {
     } else if (index === -1) {
       return false;
   }
-}}
+}
+render(z) {
+  let itemz = document.createElement('ul');
+  itemz.innerHTML = this.items;
+}
 
-// // }
-// if(index === -1 || !y instanceof ShoppingListItem){
-//   throw new error;
-// }else{
-//   this.items.splice(index,1);
+
+
+
+}
+

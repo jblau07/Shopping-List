@@ -12,14 +12,10 @@ class ShoppingListItem {
     this.is_done = false;
   }
   render() {
-    // let liHTML = document.createElement("span");
-    // liHTML.innerHTML = [name];
+    let liHTML = document.createElement("span");
+    liHTML.innerHTML = [name];
 
-    
-    // let liWrap = document.createElement("li")
-    // liWrap.innerHTML = "slsf"
-    // // liWrap.className = completed_[is_done];
-    
-    // return liWrap;
+      
+    return `<li class="completed_${this.is_done}"><span>${this.name}</span><span>${this.description}</span></li>`
   }
 }
