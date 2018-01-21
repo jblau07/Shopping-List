@@ -77,13 +77,12 @@ describe('ShoppingList', function () {
     expect(firstList).to.have.all.keys('items');
   });
   it('should initialize items as an empty array', function () {
-    expect(firstList.items).to.be.an('array');
+    expect(firstList.items).to.be.an('array').that.is.empty;
   })
   describe('addItem', function () {
 
-
     it('should have a method named addItem', function () {
-      expect(firstList.addItem).to.be.a('function')
+      expect(firstList.addItem).to.be.a('function');
     });
     it('should only take one argument', function () {
       firstList.addItem(firstItem);
@@ -99,8 +98,46 @@ describe('ShoppingList', function () {
   });
   it('should add the item to the shopping list', function () {
     firstList.addItem(firstItem);
-    firstList.items.should.include(firstItem)
+    firstList.items.should.include(firstItem);
   })
 })
-});
-});
+
+describe('removeItem', function(){
+  
+  let tempList = new ShoppingList()
+  let tempItem1 = new ShoppingListItem('orange', 'navel')
+  let tempItem2 = new ShoppingListItem('peach', 'juicy')
+  let notInList = new ShoppingListItem('cat', 'furry')
+  beforeEach(function() {
+    tempList.items = [tempItem1,tempItem2];
+  })
+  
+
+
+  it('should have a method named removeItem', function () {
+    expect(tempList.removeItem).to.be.a('function');
+  });
+  it('should only remove an item that exists in items array', function () {
+    tempList.removeItem(notInList);
+    tempList.items.should.not.contain(notInList);
+  })
+  it('should remove the item from the shopping list', function (){
+    tempList.removeItem(tempItem1);
+    tempList.items.should.not.contain(tempItem1);
+  })
+
+  it('should remove the last item if no parameter is given ', function() {
+    tempList.removeItem(tempItem1);
+    tempList.items.should.contain(tempItem2);
+  })
+  it('should throw an error if a shopping list item is not passed as the argument', function(){
+    expect(tempList.removeItem.bind(tempList, 'z')).to.throw();
+})
+
+
+})// end describe removeItem
+
+
+
+});// end shoppingList
+});// end shoppingListItem
